@@ -1,0 +1,21 @@
+services:
+  homepage:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: home-server-homepage
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NEXTAUTH_URL: "${NEXTAUTH_URL}"
+      NEXTAUTH_SECRET: "${NEXTAUTH_SECRET}"
+      AUTH_SECRET: "${NEXTAUTH_SECRET}"
+      AUTHENTIK_ISSUER: "${AUTHENTIK_ISSUER}"
+      AUTHENTIK_CLIENT_ID: "${AUTHENTIK_CLIENT_ID}"
+      AUTHENTIK_CLIENT_SECRET: "${AUTHENTIK_CLIENT_SECRET}"
+      PLEX_URL: "${PLEX_URL}"
+      SEERR_URL: "${SEERR_URL}"
+      ABS_URL: "${ABS_URL}"
+      READMEABOOK_URL: "${READMEABOOK_URL}"
+      BENTOPDF_URL: "${BENTOPDF_URL}"
